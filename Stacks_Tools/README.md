@@ -14,7 +14,10 @@
 
 1. 快速录入 task 到指定层级： project ->file -> list -> task 
 2. 查看 特定层级的代办信息 
-3. task推送到 omnifocu 或 apple 日历等 ; 
+3. task推送到 omnifocu 或 apple 日历等 ;
+
+https://github.com/SuchaharCan/AlfredWorkflows_Collection/releases/tag/Stacks
+通过 上述 链接 有 安装到使用的完整 gif引导复现文件  There is a complete GIF guide file for installation and usage through the above link.
 
 
 
