@@ -21,12 +21,20 @@ fs::path find_project_root(fs::path start_path) {
 }
 
 int main(int argc, char* argv[]) {
+    if (argc == 2) {
+        const std::string option = argv[1];
+        if (option == "--version" || option == "-v") {
+            std::println("Stacks_Tools {}", STACKS_TOOLS_VERSION);
+            return 0;
+        }
+    }
+
     // 检查基础参数数量：程序名(0), 命令(1), ...
     if (argc < 3) {
         std::println("Usage:");
         std::println("  Sync:  Stacks_Tools sync <search_path>");
-        std::println("  Task:  Stacks_Tools add <project_id> <title_and_desc>");
-        std::println("         (Use '`' to separate title and description)");
+        std::println("  Task:  Stacks_Tools add <project_id> <title|description>");
+        std::println("         (Use '|' to separate title and description)");
         return 1;
     }
 

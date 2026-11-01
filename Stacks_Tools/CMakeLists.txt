@@ -3,7 +3,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # 显式开启编译数据库生成 Clang-
 cmake_minimum_required(VERSION 4.1...4.3)
 project(
  Stacks_Tools
- VERSION 0.0.1
+ VERSION 1.0.0
  DESCRIPTION "基于Stacks衍生开发 任务基本管理 的 C++23项目"
  LANGUAGES CXX)
 
@@ -35,7 +35,7 @@ if(APPLE)
 
   set(LLVM_ROOT "/opt/homebrew/opt/llvm")
   set(CMAKE_CXX_COMPILER "${LLVM_ROOT}/bin/clang++")
-  set(CMAKE_INSTALL_RPATH "${LLMV_ROOT}/lib")
+  set(CMAKE_INSTALL_RPATH "${LLVM_ROOT}/lib")
   set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
 
   add_compile_options(-stdlib=libc++)
@@ -96,6 +96,7 @@ add_subdirectory(modules/task_manager)
 
 # 3. 创建主程序
 add_executable(Stacks_Tools src/main.cpp)
+target_compile_definitions(Stacks_Tools PRIVATE STACKS_TOOLS_VERSION="${PROJECT_VERSION}")
 
 # 4. 链接关系：主程序依赖子模块，子模块依赖 std 模块 链接时，CMake 会自动处理 OBJECT 库的依赖
 target_link_libraries(Stacks_Tools PRIVATE project_sync task_manager std_module_lib)
